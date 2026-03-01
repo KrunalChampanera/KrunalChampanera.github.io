@@ -3,26 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ===== SEO META TAGS ===== -->
   <title>Krunal Champanera | Full Stack Developer</title>
   <meta name="description" content="Krunal Champanera is a Frontend Developer from Ahmedabad, India. Skilled in React.js, JavaScript, Node.js, Express.js, MongoDB. View portfolio and projects." />
   <meta name="keywords" content="Krunal Champanera, Frontend Developer, React Developer, JavaScript, Ahmedabad, India, Web Developer, krunal champanera portfolio" />
   <meta name="author" content="Krunal Champanera" />
   <meta name="robots" content="index, follow" />
-
-  <!-- Open Graph -->
   <meta property="og:title" content="Krunal Champanera | Frontend Developer" />
   <meta property="og:description" content="Frontend Developer skilled in React.js, JavaScript, Node.js. Based in Ahmedabad, India." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://krunalchampanera.netlify.app" />
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Krunal Champanera | Frontend Developer" />
   <meta name="twitter:description" content="Frontend Developer from Ahmedabad. React.js, JavaScript, Node.js specialist." />
-
-  <!-- JSON-LD Structured Data — Google shows Instagram & LinkedIn when you search "Krunal Champanera" -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -30,7 +22,7 @@
     "name": "Krunal Champanera",
     "url": "https://krunalchampanera.netlify.app",
     "email": "krunalchampanera@gmail.com",
-        "jobTitle": "Frontend Developer",
+    "jobTitle": "Frontend Developer",
     "worksFor": { "@type": "Organization", "name": "Excelsior Technology" },
     "alumniOf": { "@type": "CollegeOrUniversity", "name": "SSSDIIT, Junagadh" },
     "address": { "@type": "PostalAddress", "addressLocality": "Ahmedabad", "addressCountry": "IN" },
@@ -42,659 +34,227 @@
     "description": "Frontend Developer passionate about building user-friendly websites using React.js, JavaScript, and modern web technologies."
   }
   </script>
-
-  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Google Fonts: Clash Display + DM Mono -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
-
   <style>
     :root {
-      --bg:       #040508;
-      --bg2:      #080a10;
-      --surface:  #0d1017;
-      --surface2: #121720;
-      --border:   #1e2535;
-      --border2:  #2a3348;
-      --accent:   #00d4ff;
-      --accent2:  #ff6b35;
-      --accent3:  #00ff88;
-      --text:     #e2e8f0;
-      --muted:    #5a6a85;
-      --muted2:   #8899b0;
-    }
-
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Outfit', sans-serif;
-      overflow-x: hidden;
-      cursor: none;
-    }
-
-    /* Custom cursor */
-    .cursor {
-      position: fixed;
-      width: 12px; height: 12px;
-      background: var(--accent);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: transform 0.1s, width 0.2s, height 0.2s, opacity 0.2s;
-      mix-blend-mode: screen;
-    }
-    .cursor-ring {
-      position: fixed;
-      width: 40px; height: 40px;
-      border: 1px solid rgba(0,212,255,0.4);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%, -50%);
-      transition: all 0.15s ease;
-    }
-    body:has(a:hover) .cursor, body:has(button:hover) .cursor { width: 20px; height: 20px; }
-    body:has(a:hover) .cursor-ring, body:has(button:hover) .cursor-ring { width: 60px; height: 60px; border-color: var(--accent); }
-
-    /* Grid lines background */
-    body::before {
-      content: '';
-      position: fixed; inset: 0;
-      background-image:
-        linear-gradient(rgba(0,212,255,0.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,212,255,0.015) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none; z-index: 0;
-    }
-
-    /* Ambient glow blobs */
-    .blob {
-      position: fixed; border-radius: 50%;
-      filter: blur(100px); pointer-events: none; z-index: 0;
-    }
-    .blob-1 { width: 600px; height: 600px; background: rgba(0,212,255,0.06); top: -200px; left: -150px; animation: pulse 10s ease-in-out infinite; }
-    .blob-2 { width: 500px; height: 500px; background: rgba(255,107,53,0.05); bottom: 0; right: -100px; animation: pulse 12s ease-in-out infinite reverse; }
-    .blob-3 { width: 300px; height: 300px; background: rgba(0,255,136,0.04); top: 40%; left: 50%; animation: pulse 8s ease-in-out infinite 3s; }
-    @keyframes pulse { 0%,100%{transform:scale(1) translateY(0)} 50%{transform:scale(1.1) translateY(-20px)} }
-
-    /* ===== NAVBAR ===== */
-    #navbar {
-      position: fixed; top: 0; width: 100%; z-index: 1000;
-      padding: 1.4rem 0;
-      transition: all 0.4s ease;
-    }
-    #navbar.scrolled {
-      background: rgba(4,5,8,0.85);
-      backdrop-filter: blur(24px);
-      border-bottom: 1px solid var(--border);
-      padding: 0.9rem 0;
-    }
-    .nav-brand {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.9rem;
-      color: var(--accent) !important;
-      text-decoration: none;
-      letter-spacing: 1px;
-    }
-    .nav-brand span { color: var(--accent2); }
-    .nav-links { display: flex; gap: 0.3rem; align-items: center; }
-    .nav-link-item {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--muted2);
-      text-decoration: none;
-      padding: 0.45rem 1rem;
-      border-radius: 6px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      transition: all 0.25s;
-      border: 1px solid transparent;
-    }
-    .nav-link-item:hover, .nav-link-item.active {
-      color: var(--accent);
-      border-color: var(--border2);
-      background: var(--surface);
-    }
-    .nav-cta {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--bg);
-      background: var(--accent);
-      padding: 0.45rem 1.2rem;
-      border-radius: 6px;
-      text-decoration: none;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: all 0.25s;
-      margin-left: 0.5rem;
-    }
-    .nav-cta:hover { background: white; color: var(--bg); transform: translateY(-1px); }
-
-    /* Hamburger for mobile */
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 5px; }
-    .hamburger span { width: 24px; height: 1px; background: var(--muted2); transition: all 0.3s; display: block; }
-    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
-
-    @media(max-width:768px) {
-      .hamburger { display: flex; }
-      .nav-links {
-        display: none; flex-direction: column; gap: 0.5rem;
-        position: absolute; top: 100%; left: 0; right: 0;
-        background: rgba(4,5,8,0.97); backdrop-filter: blur(24px);
-        border-bottom: 1px solid var(--border); padding: 1.5rem;
-      }
-      .nav-links.open { display: flex; }
-      .nav-cta { margin-left: 0; text-align: center; }
-    }
-
-    /* ===== HERO ===== */
-    #hero {
-      min-height: 100vh;
-      display: flex; align-items: center;
-      position: relative; z-index: 1;
-      padding: 8rem 0 5rem;
-    }
-
-    .hero-status {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      background: var(--surface2); border: 1px solid var(--border2);
-      padding: 0.4rem 1rem; border-radius: 100px;
-      font-family: 'DM Mono', monospace; font-size: 0.7rem;
-      color: var(--muted2); letter-spacing: 1px; margin-bottom: 2rem;
-      opacity: 0; animation: fade-up 0.7s ease forwards 0.1s;
-    }
-    .status-dot {
-      width: 7px; height: 7px; background: var(--accent3);
-      border-radius: 50%; animation: blink 2s ease-in-out infinite;
-    }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-
-    .hero-greeting {
-      font-family: 'DM Mono', monospace; font-size: 1rem;
-      color: var(--accent); letter-spacing: 2px; margin-bottom: 0.8rem;
-      opacity: 0; animation: fade-up 0.7s ease forwards 0.2s;
-    }
-
-    .hero-name {
-      font-size: clamp(2.8rem, 7vw, 6.5rem);
-      font-weight: 900; line-height: 1.05; letter-spacing: -1px; padding-right: 12px; overflow: visible;
-      opacity: 0; animation: fade-up 0.7s ease forwards 0.35s;
-    }
-    .hero-name .line2 {
-      background: linear-gradient(120deg, var(--accent) 0%, var(--accent2) 60%, var(--accent3) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text; display: block; padding-right: 16px; overflow: visible;
-    }
-
-    .hero-title {
-      font-size: clamp(1rem, 2vw, 1.3rem); color: var(--muted2);
-      font-weight: 400; margin-top: 1.2rem; letter-spacing: 0.5px;
-      opacity: 0; animation: fade-up 0.7s ease forwards 0.5s;
-    }
-    .hero-title span { color: var(--accent); font-family: 'DM Mono', monospace; font-size: 0.85em; }
-
-    .hero-bio {
-      max-width: 540px; color: var(--muted2);
-      font-size: 0.95rem; line-height: 1.8; margin-top: 1.5rem;
-      opacity: 0; animation: fade-up 0.7s ease forwards 0.65s;
-    }
-
-    .hero-actions {
-      display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem;
-      opacity: 0; animation: fade-up 0.7s ease forwards 0.8s;
-    }
-    .btn-glow {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--accent); color: var(--bg); border: none;
-      padding: 0.85rem 2rem; border-radius: 8px; font-weight: 700;
-      font-size: 0.9rem; text-decoration: none; letter-spacing: 0.5px;
-      transition: all 0.3s ease; position: relative; overflow: hidden;
-    }
-    .btn-glow::before {
-      content: ''; position: absolute; inset: 0;
-      background: white; transform: translateX(-101%);
-      transition: transform 0.3s ease;
-    }
-    .btn-glow:hover { color: var(--bg); transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,212,255,0.3); }
-    .btn-glow:hover::before { transform: translateX(101%); }
-    .btn-ghost {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: transparent; color: var(--text);
-      border: 1px solid var(--border2); padding: 0.85rem 2rem;
-      border-radius: 8px; font-weight: 600; font-size: 0.9rem;
-      text-decoration: none; transition: all 0.3s ease;
-    }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
-
-    .hero-socials {
-      display: flex; gap: 0.8rem; margin-top: 2.5rem;
-      opacity: 0; animation: fade-up 0.7s ease forwards 0.95s;
-    }
-    .soc-btn {
-      display: flex; align-items: center; justify-content: center;
-      width: 42px; height: 42px;
-      border: 1px solid var(--border2); border-radius: 8px;
-      color: var(--muted2); text-decoration: none; font-size: 1rem;
-      transition: all 0.25s; background: var(--surface);
-    }
-    .soc-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); background: var(--surface2); }
-
-    /* Hero right side — code card */
-    .hero-code-card {
-      background: var(--surface); border: 1px solid var(--border2);
-      border-radius: 16px; overflow: hidden;
-      font-family: 'DM Mono', monospace;
-      opacity: 0; animation: fade-in 1s ease forwards 0.5s;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-    }
-    .code-titlebar {
-      background: var(--surface2); padding: 0.8rem 1.2rem;
-      display: flex; align-items: center; gap: 0.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .dot { width: 10px; height: 10px; border-radius: 50%; }
-    .dot-r { background: #ff5f57; }
-    .dot-y { background: #febc2e; }
-    .dot-g { background: #28c840; }
-    .code-filename { font-size: 0.7rem; color: var(--muted); margin-left: auto; letter-spacing: 1px; }
-    .code-body { padding: 1.5rem; font-size: 0.78rem; line-height: 2; }
-    .c-key { color: #569cd6; }
-    .c-const { color: #c586c0; }
-    .c-str { color: var(--accent3); }
-    .c-val { color: var(--accent2); }
-    .c-fn { color: var(--accent); }
-    .c-cmt { color: var(--muted); font-style: italic; }
-    .c-obj { color: #9cdcfe; }
-    .typing-cursor { display: inline-block; width: 2px; height: 1em; background: var(--accent); animation: blink-cursor 1s step-end infinite; vertical-align: middle; }
-    @keyframes blink-cursor { 50%{opacity:0} }
-
-    /* Hero counter bar */
-    .hero-counters {
-      display: flex; gap: 0; margin-top: 2rem;
-      border: 1px solid var(--border2); border-radius: 10px;
-      overflow: hidden; opacity: 0;
-      animation: fade-in 0.7s ease forwards 1.1s;
-    }
-    .counter-item {
-      flex: 1; padding: 1rem; text-align: center;
-      border-right: 1px solid var(--border2);
-    }
-    .counter-item:last-child { border-right: none; }
-    .counter-num { font-size: 1.6rem; font-weight: 800; color: var(--white); letter-spacing: -1px; }
-    .counter-num sup { font-size: 0.8rem; color: var(--accent); }
-    .counter-lbl { font-size: 0.65rem; color: var(--muted); font-family: 'DM Mono', monospace; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 0.2rem; }
-
-    /* ===== SECTION BASE ===== */
-    section { position: relative; z-index: 1; padding: 7rem 0; }
-    .sec-tag {
-      font-family: 'DM Mono', monospace; font-size: 0.68rem;
-      color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.6rem;
-    }
-    .sec-title { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800; letter-spacing: -2px; line-height: 1.1; }
-    .sec-line { width: 50px; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); margin-top: 1rem; }
-
-    /* ===== ABOUT ===== */
-    #about { background: var(--bg2); }
-    .about-para { font-size: 1rem; line-height: 1.85; color: var(--muted2); }
-    .about-para strong { color: var(--text); font-weight: 600; }
-    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
-    .info-item { display: flex; flex-direction: column; gap: 0.2rem; }
-    .info-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
-    .info-value { font-size: 0.9rem; color: var(--text); font-weight: 500; }
-    .info-value a { color: var(--accent); text-decoration: none; }
-    .info-value a:hover { text-decoration: underline; }
-
-    /* Skills chips */
-    .skill-group-title { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--accent2); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.8rem; }
-    .chip {
-      display: inline-block; background: var(--surface2); border: 1px solid var(--border2);
-      padding: 0.3rem 0.85rem; border-radius: 100px;
-      font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--muted2);
-      margin: 0.25rem; transition: all 0.2s;
-    }
-    .chip:hover { border-color: var(--accent); color: var(--accent); cursor: default; }
-
-    /* ===== EXPERIENCE ===== */
-    .exp-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 12px; padding: 2rem; position: relative;
-      transition: all 0.3s; overflow: hidden;
-    }
-    .exp-card::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-      width: 3px; background: linear-gradient(180deg, var(--accent), var(--accent2));
-      border-radius: 3px 0 0 3px;
-    }
-    .exp-card:hover { border-color: var(--border2); transform: translateY(-3px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-    .exp-period {
-      font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--accent);
-      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;
-    }
-    .exp-role { font-size: 1.15rem; font-weight: 700; }
-    .exp-company { font-size: 0.9rem; color: var(--muted2); margin-top: 0.2rem; }
-    .exp-bullets { margin-top: 1.2rem; padding: 0; list-style: none; }
-    .exp-bullets li {
-      font-size: 0.88rem; color: var(--muted2); line-height: 1.7;
-      padding: 0.25rem 0 0.25rem 1.2rem; position: relative;
-    }
-    .exp-bullets li::before {
-      content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem;
-    }
-
-    /* ===== EDUCATION ===== */
-    #education { background: var(--bg2); }
-    .edu-item {
-      display: flex; gap: 1.5rem; padding: 1.5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .edu-item:last-child { border-bottom: none; }
-    .edu-icon {
-      width: 48px; height: 48px; min-width: 48px;
-      background: var(--surface2); border: 1px solid var(--border2);
-      border-radius: 10px; display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem;
-    }
-    .edu-year { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--accent); letter-spacing: 2px; }
-    .edu-degree { font-size: 1rem; font-weight: 700; margin-top: 0.2rem; }
-    .edu-school { font-size: 0.85rem; color: var(--muted2); margin-top: 0.15rem; }
-    .edu-percent { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--accent2); margin-top: 0.3rem; }
-
-    /* ===== PROJECTS ===== */
-    /* Filter tabs */
-    .filter-bar {
-      display: flex; gap: 0.5rem; flex-wrap: wrap;
-      margin-bottom: 3rem;
-    }
-    .filter-btn {
-      font-family: 'DM Mono', monospace; font-size: 0.72rem;
-      color: var(--muted2); background: var(--surface);
-      border: 1px solid var(--border2); padding: 0.5rem 1.2rem;
-      border-radius: 100px; cursor: pointer; letter-spacing: 1px;
-      text-transform: uppercase; transition: all 0.25s;
-    }
-    .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
-    .filter-btn.active { background: var(--accent); border-color: var(--accent); color: var(--bg); font-weight: 600; }
-
-    /* Project cards */
-    .project-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 14px; overflow: hidden; height: 100%;
-      transition: all 0.35s ease; display: flex; flex-direction: column;
-    }
-    .project-card:hover { border-color: var(--border2); transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
-    .project-thumb {
-      height: 180px; display: flex; align-items: center; justify-content: center;
-      font-size: 3rem; position: relative; overflow: hidden;
-      border-bottom: 1px solid var(--border);
-    }
-    .project-thumb::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(0,212,255,0.06) 0%, rgba(255,107,53,0.06) 100%);
-    }
-    .p-thumb-bg { position: absolute; inset: 0; }
-    .p-emoji { position: relative; z-index: 1; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5)); }
-    .project-badge {
-      position: absolute; top: 1rem; right: 1rem; z-index: 2;
-      font-family: 'DM Mono', monospace; font-size: 0.6rem;
-      background: rgba(0,212,255,0.12); border: 1px solid rgba(0,212,255,0.25);
-      color: var(--accent); padding: 0.2rem 0.6rem; border-radius: 100px;
-      letter-spacing: 1px; text-transform: uppercase;
-    }
-    .project-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-    .project-stack { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1rem; }
-    .stack-tag {
-      font-family: 'DM Mono', monospace; font-size: 0.62rem;
-      color: var(--accent3); background: rgba(0,255,136,0.07);
-      border: 1px solid rgba(0,255,136,0.15); padding: 0.15rem 0.55rem;
-      border-radius: 3px; text-transform: uppercase; letter-spacing: 0.8px;
-    }
-    .project-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .project-desc { font-size: 0.82rem; color: var(--muted2); line-height: 1.65; flex: 1; }
-    .project-links { display: flex; gap: 1rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); }
-    .p-link {
-      font-family: 'DM Mono', monospace; font-size: 0.7rem;
-      color: var(--muted2); text-decoration: none;
-      display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s;
-    }
-    .p-link:hover { color: var(--accent); }
-    .project-hidden { display: none; }
-
-    /* ===== CONTACT ===== */
-    #contact { background: var(--bg2); }
-    .contact-wrapper {
-      display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start;
-    }
-    @media(max-width:900px) { .contact-wrapper { grid-template-columns: 1fr; } }
-
-    .contact-info-item {
-      display: flex; gap: 1rem; align-items: flex-start; padding: 1.2rem;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 10px; text-decoration: none; color: inherit;
-      transition: all 0.25s; margin-bottom: 1rem;
-    }
-    .contact-info-item:hover { border-color: var(--border2); transform: translateX(6px); color: inherit; }
-    .contact-icon-wrap {
-      width: 42px; height: 42px; min-width: 42px;
-      background: var(--surface2); border: 1px solid var(--border2);
-      border-radius: 8px; display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
-    }
-    .ci-label { font-family: 'DM Mono', monospace; font-size: 0.63rem; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; }
-    .ci-value { font-size: 0.9rem; font-weight: 600; margin-top: 0.2rem; }
-
-    /* Contact form */
-    .contact-form { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 2.5rem; }
-    .form-label-custom {
-      font-family: 'DM Mono', monospace; font-size: 0.68rem;
-      color: var(--muted2); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 0.5rem; display: block;
-    }
-    .form-control-custom {
-      width: 100%; background: var(--surface2); border: 1px solid var(--border2);
-      color: var(--text); padding: 0.85rem 1rem; border-radius: 8px;
-      font-size: 0.9rem; font-family: 'Outfit', sans-serif;
-      outline: none; transition: border-color 0.25s;
-      resize: none;
-    }
-    .form-control-custom::placeholder { color: var(--muted); }
-    .form-control-custom:focus { border-color: var(--accent); }
-    .form-group { margin-bottom: 1.2rem; }
-    .btn-submit {
-      width: 100%; background: var(--accent); color: var(--bg);
-      border: none; padding: 1rem; border-radius: 8px;
-      font-weight: 700; font-size: 0.95rem; letter-spacing: 0.5px;
-      cursor: pointer; transition: all 0.3s; display: flex;
-      align-items: center; justify-content: center; gap: 0.5rem;
-      margin-top: 0.5rem; font-family: 'Outfit', sans-serif;
-    }
-    .btn-submit:hover { background: white; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,212,255,0.25); }
-    .form-success {
-      display: none; text-align: center; padding: 2rem;
-      font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--accent3);
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      border-top: 1px solid var(--border); padding: 2.5rem 0;
-      position: relative; z-index: 1;
-    }
-    .footer-inner {
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-brand { font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--accent); }
-    .footer-copy { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted); }
-    .footer-socials { display: flex; gap: 0.6rem; }
-
-    /* ===== SCROLL REVEAL ===== */
-    .reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.in { opacity: 1; transform: none; }
-
-    /* ===== ANIMATIONS ===== */
-    @keyframes fade-up { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
-    @keyframes fade-in { from{opacity:0} to{opacity:1} }
-
-    /* ===== BIG SOCIAL CARDS ===== */
-    .social-big-card {
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: 1.5rem 0.8rem; border-radius: 16px;
-      background: var(--surface); border: 1px solid var(--border2);
-      text-decoration: none; color: var(--text);
-      transition: all 0.3s ease; text-align: center;
-      position: relative; overflow: hidden; cursor: pointer;
-    }
-    .social-big-card::before {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, var(--sc), var(--sc2));
-      opacity: 0; transition: opacity 0.3s ease;
-    }
-    .social-big-card:hover { transform: translateY(-8px); color: white; border-color: var(--sc); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-    .social-big-card:hover::before { opacity: 0.15; }
-    .sc-icon-wrap {
-      width: 60px; height: 60px; border-radius: 16px;
-      background: var(--surface2); border: 1px solid var(--border2);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--sc); margin-bottom: 0.8rem; position: relative; z-index: 1;
-      transition: all 0.3s;
-    }
-    .social-big-card:hover .sc-icon-wrap { background: var(--sc); color: white; border-color: var(--sc); transform: scale(1.1); }
-    .sc-label {
-      font-family: 'DM Mono', monospace; font-size: 0.62rem;
-      color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase;
-      position: relative; z-index: 1; transition: color 0.3s;
-    }
-    .social-big-card:hover .sc-label { color: rgba(255,255,255,0.7); }
-    .sc-handle {
-      font-size: 0.78rem; font-weight: 600; margin-top: 0.2rem;
-      position: relative; z-index: 1; word-break: break-all;
-    }
-    /* ===== FOOTER SOCIAL BUTTONS ===== */
-    .footer-soc-btn {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.5rem 1.2rem; border-radius: 100px;
-      border: 1px solid var(--border2); background: var(--surface);
-      color: var(--muted2); text-decoration: none;
-      font-family: 'DM Mono', monospace; font-size: 0.72rem;
-      letter-spacing: 0.5px; transition: all 0.25s;
-    }
-    .footer-soc-btn:hover { border-color: var(--fc); color: var(--fc); background: var(--surface2); transform: translateY(-2px); }
-    .footer-soc-btn i { font-size: 0.95rem; }
-
-    /* Back to top */
-    #back-top {
-      position: fixed; bottom: 2rem; right: 2rem; z-index: 500;
-      width: 44px; height: 44px; background: var(--surface); border: 1px solid var(--border2);
-      border-radius: 10px; display: flex; align-items: center; justify-content: center;
-      color: var(--muted2); text-decoration: none; font-size: 1.1rem;
-      transition: all 0.25s; opacity: 0; pointer-events: none;
-    }
-    #back-top.show { opacity: 1; pointer-events: all; }
-    #back-top:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
-
-    /* Progress bar */
-    #progress { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); z-index: 9999; transition: width 0.1s; }
+      --bg:#040508;--bg2:#080a10;--surface:#0d1017;--surface2:#121720;
+      --border:#1e2535;--border2:#2a3348;--accent:#00d4ff;--accent2:#ff6b35;
+      --accent3:#00ff88;--text:#e2e8f0;--muted:#5a6a85;--muted2:#8899b0;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;overflow-x:hidden;cursor:none}
+    .cursor{position:fixed;width:12px;height:12px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s,width .2s,height .2s,opacity .2s;mix-blend-mode:screen}
+    .cursor-ring{position:fixed;width:40px;height:40px;border:1px solid rgba(0,212,255,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .15s ease}
+    body:has(a:hover) .cursor,body:has(button:hover) .cursor{width:20px;height:20px}
+    body:has(a:hover) .cursor-ring,body:has(button:hover) .cursor-ring{width:60px;height:60px;border-color:var(--accent)}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,212,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,.015) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+    .blob{position:fixed;border-radius:50%;filter:blur(100px);pointer-events:none;z-index:0}
+    .blob-1{width:600px;height:600px;background:rgba(0,212,255,.06);top:-200px;left:-150px;animation:pulse 10s ease-in-out infinite}
+    .blob-2{width:500px;height:500px;background:rgba(255,107,53,.05);bottom:0;right:-100px;animation:pulse 12s ease-in-out infinite reverse}
+    .blob-3{width:300px;height:300px;background:rgba(0,255,136,.04);top:40%;left:50%;animation:pulse 8s ease-in-out infinite 3s}
+    @keyframes pulse{0%,100%{transform:scale(1) translateY(0)}50%{transform:scale(1.1) translateY(-20px)}}
+    #navbar{position:fixed;top:0;width:100%;z-index:1000;padding:1.4rem 0;transition:all .4s ease}
+    #navbar.scrolled{background:rgba(4,5,8,.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:.9rem 0}
+    .nav-brand{font-family:'DM Mono',monospace;font-size:.9rem;color:var(--accent)!important;text-decoration:none;letter-spacing:1px}
+    .nav-brand span{color:var(--accent2)}
+    .nav-links{display:flex;gap:.3rem;align-items:center}
+    .nav-link-item{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted2);text-decoration:none;padding:.45rem 1rem;border-radius:6px;letter-spacing:1.5px;text-transform:uppercase;transition:all .25s;border:1px solid transparent}
+    .nav-link-item:hover,.nav-link-item.active{color:var(--accent);border-color:var(--border2);background:var(--surface)}
+    .nav-cta{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--bg);background:var(--accent);padding:.45rem 1.2rem;border-radius:6px;text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:all .25s;margin-left:.5rem}
+    .nav-cta:hover{background:white;color:var(--bg);transform:translateY(-1px)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px}
+    .hamburger span{width:24px;height:1px;background:var(--muted2);transition:all .3s;display:block}
+    .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+    @media(max-width:768px){
+      .hamburger{display:flex}
+      .nav-links{display:none;flex-direction:column;gap:.5rem;position:absolute;top:100%;left:0;right:0;background:rgba(4,5,8,.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:1.5rem}
+      .nav-links.open{display:flex}
+      .nav-cta{margin-left:0;text-align:center}
+    }
+    #hero{min-height:100vh;display:flex;align-items:center;position:relative;z-index:1;padding:8rem 0 5rem}
+    .hero-status{display:inline-flex;align-items:center;gap:.6rem;background:var(--surface2);border:1px solid var(--border2);padding:.4rem 1rem;border-radius:100px;font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted2);letter-spacing:1px;margin-bottom:2rem;opacity:0;animation:fade-up .7s ease forwards .1s}
+    .status-dot{width:7px;height:7px;background:var(--accent3);border-radius:50%;animation:blink 2s ease-in-out infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+    .hero-greeting{font-family:'DM Mono',monospace;font-size:1rem;color:var(--accent);letter-spacing:2px;margin-bottom:.8rem;opacity:0;animation:fade-up .7s ease forwards .2s}
+    .hero-name{font-size:clamp(2.8rem,7vw,6.5rem);font-weight:900;line-height:1.05;letter-spacing:-1px;padding-right:12px;overflow:visible;opacity:0;animation:fade-up .7s ease forwards .35s}
+    .hero-name .line2{background:linear-gradient(120deg,var(--accent) 0%,var(--accent2) 60%,var(--accent3) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;padding-right:16px;overflow:visible}
+    .hero-title{font-size:clamp(1rem,2vw,1.3rem);color:var(--muted2);font-weight:400;margin-top:1.2rem;letter-spacing:.5px;opacity:0;animation:fade-up .7s ease forwards .5s}
+    .hero-title span{color:var(--accent);font-family:'DM Mono',monospace;font-size:.85em}
+    .hero-bio{max-width:540px;color:var(--muted2);font-size:.95rem;line-height:1.8;margin-top:1.5rem;opacity:0;animation:fade-up .7s ease forwards .65s}
+    .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.5rem;opacity:0;animation:fade-up .7s ease forwards .8s}
+    .btn-glow{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:var(--bg);border:none;padding:.85rem 2rem;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none;letter-spacing:.5px;transition:all .3s ease;position:relative;overflow:hidden}
+    .btn-glow::before{content:'';position:absolute;inset:0;background:white;transform:translateX(-101%);transition:transform .3s ease}
+    .btn-glow:hover{color:var(--bg);transform:translateY(-3px);box-shadow:0 15px 35px rgba(0,212,255,.3)}
+    .btn-glow:hover::before{transform:translateX(101%)}
+    .btn-ghost{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--text);border:1px solid var(--border2);padding:.85rem 2rem;border-radius:8px;font-weight:600;font-size:.9rem;text-decoration:none;transition:all .3s ease}
+    .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px)}
+    .hero-socials{display:flex;gap:.8rem;margin-top:2.5rem;opacity:0;animation:fade-up .7s ease forwards .95s}
+    .soc-btn{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--border2);border-radius:8px;color:var(--muted2);text-decoration:none;font-size:1rem;transition:all .25s;background:var(--surface)}
+    .soc-btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px);background:var(--surface2)}
+    .hero-code-card{background:var(--surface);border:1px solid var(--border2);border-radius:16px;overflow:hidden;font-family:'DM Mono',monospace;opacity:0;animation:fade-in 1s ease forwards .5s;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+    .code-titlebar{background:var(--surface2);padding:.8rem 1.2rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid var(--border)}
+    .dot{width:10px;height:10px;border-radius:50%}
+    .dot-r{background:#ff5f57}.dot-y{background:#febc2e}.dot-g{background:#28c840}
+    .code-filename{font-size:.7rem;color:var(--muted);margin-left:auto;letter-spacing:1px}
+    .code-body{padding:1.5rem;font-size:.78rem;line-height:2}
+    .c-key{color:#569cd6}.c-const{color:#c586c0}.c-str{color:var(--accent3)}.c-val{color:var(--accent2)}.c-fn{color:var(--accent)}.c-cmt{color:var(--muted);font-style:italic}.c-obj{color:#9cdcfe}
+    .typing-cursor{display:inline-block;width:2px;height:1em;background:var(--accent);animation:blink-cursor 1s step-end infinite;vertical-align:middle}
+    @keyframes blink-cursor{50%{opacity:0}}
+    .hero-counters{display:flex;gap:0;margin-top:2rem;border:1px solid var(--border2);border-radius:10px;overflow:hidden;opacity:0;animation:fade-in .7s ease forwards 1.1s}
+    .counter-item{flex:1;padding:1rem;text-align:center;border-right:1px solid var(--border2)}
+    .counter-item:last-child{border-right:none}
+    .counter-num{font-size:1.6rem;font-weight:800;letter-spacing:-1px}
+    .counter-num sup{font-size:.8rem;color:var(--accent)}
+    .counter-lbl{font-size:.65rem;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:1.5px;text-transform:uppercase;margin-top:.2rem}
+    section{position:relative;z-index:1;padding:7rem 0}
+    .sec-tag{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:.6rem}
+    .sec-title{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;letter-spacing:-2px;line-height:1.1}
+    .sec-line{width:50px;height:2px;background:linear-gradient(90deg,var(--accent),transparent);margin-top:1rem}
+    #about{background:var(--bg2)}
+    .about-para{font-size:1rem;line-height:1.85;color:var(--muted2)}
+    .about-para strong{color:var(--text);font-weight:600}
+    .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+    .info-item{display:flex;flex-direction:column;gap:.2rem}
+    .info-label{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
+    .info-value{font-size:.9rem;color:var(--text);font-weight:500}
+    .info-value a{color:var(--accent);text-decoration:none}
+    .info-value a:hover{text-decoration:underline}
+    .skill-group-title{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--accent2);letter-spacing:2px;text-transform:uppercase;margin-bottom:.8rem}
+    .chip{display:inline-block;background:var(--surface2);border:1px solid var(--border2);padding:.3rem .85rem;border-radius:100px;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted2);margin:.25rem;transition:all .2s}
+    .chip:hover{border-color:var(--accent);color:var(--accent);cursor:default}
+    .exp-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;position:relative;transition:all .3s;overflow:hidden}
+    .exp-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--accent),var(--accent2));border-radius:3px 0 0 3px}
+    .exp-card:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 20px 40px rgba(0,0,0,.4)}
+    .exp-period{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem}
+    .exp-role{font-size:1.15rem;font-weight:700}
+    .exp-company{font-size:.9rem;color:var(--muted2);margin-top:.2rem}
+    .exp-bullets{margin-top:1.2rem;padding:0;list-style:none}
+    .exp-bullets li{font-size:.88rem;color:var(--muted2);line-height:1.7;padding:.25rem 0 .25rem 1.2rem;position:relative}
+    .exp-bullets li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:.75rem}
+    #education{background:var(--bg2)}
+    .edu-item{display:flex;gap:1.5rem;padding:1.5rem 0;border-bottom:1px solid var(--border)}
+    .edu-item:last-child{border-bottom:none}
+    .edu-icon{width:48px;height:48px;min-width:48px;background:var(--surface2);border:1px solid var(--border2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+    .edu-year{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:2px}
+    .edu-degree{font-size:1rem;font-weight:700;margin-top:.2rem}
+    .edu-school{font-size:.85rem;color:var(--muted2);margin-top:.15rem}
+    .edu-percent{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--accent2);margin-top:.3rem}
+    .filter-bar{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:3rem}
+    .filter-btn{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted2);background:var(--surface);border:1px solid var(--border2);padding:.5rem 1.2rem;border-radius:100px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;transition:all .25s}
+    .filter-btn:hover{border-color:var(--accent);color:var(--accent)}
+    .filter-btn.active{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:600}
+    .project-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;height:100%;transition:all .35s ease;display:flex;flex-direction:column}
+    .project-card:hover{border-color:var(--border2);transform:translateY(-8px);box-shadow:0 25px 50px rgba(0,0,0,.5)}
+    .project-thumb{height:180px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+    .project-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,212,255,.06) 0%,rgba(255,107,53,.06) 100%)}
+    .p-thumb-bg{position:absolute;inset:0}
+    .p-emoji{position:relative;z-index:1;filter:drop-shadow(0 4px 12px rgba(0,0,0,.5))}
+    .project-badge{position:absolute;top:1rem;right:1rem;z-index:2;font-family:'DM Mono',monospace;font-size:.6rem;background:rgba(0,212,255,.12);border:1px solid rgba(0,212,255,.25);color:var(--accent);padding:.2rem .6rem;border-radius:100px;letter-spacing:1px;text-transform:uppercase}
+    .project-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+    .project-stack{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1rem}
+    .stack-tag{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--accent3);background:rgba(0,255,136,.07);border:1px solid rgba(0,255,136,.15);padding:.15rem .55rem;border-radius:3px;text-transform:uppercase;letter-spacing:.8px}
+    .project-name{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
+    .project-desc{font-size:.82rem;color:var(--muted2);line-height:1.65;flex:1}
+    .project-links{display:flex;gap:1rem;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border)}
+    .p-link{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted2);text-decoration:none;display:flex;align-items:center;gap:.4rem;transition:color .2s}
+    .p-link:hover{color:var(--accent)}
+    #contact{background:var(--bg2)}
+    .contact-wrapper{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:start}
+    @media(max-width:900px){.contact-wrapper{grid-template-columns:1fr}}
+    .contact-info-item{display:flex;gap:1rem;align-items:flex-start;padding:1.2rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;text-decoration:none;color:inherit;transition:all .25s;margin-bottom:1rem}
+    .contact-info-item:hover{border-color:var(--border2);transform:translateX(6px);color:inherit}
+    .contact-icon-wrap{width:42px;height:42px;min-width:42px;background:var(--surface2);border:1px solid var(--border2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+    .ci-label{font-family:'DM Mono',monospace;font-size:.63rem;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase}
+    .ci-value{font-size:.9rem;font-weight:600;margin-top:.2rem}
+    .contact-form{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:2.5rem}
+    .form-label-custom{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--muted2);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:.5rem;display:block}
+    .form-control-custom{width:100%;background:var(--surface2);border:1px solid var(--border2);color:var(--text);padding:.85rem 1rem;border-radius:8px;font-size:.9rem;font-family:'Outfit',sans-serif;outline:none;transition:border-color .25s;resize:none}
+    .form-control-custom::placeholder{color:var(--muted)}
+    .form-control-custom:focus{border-color:var(--accent)}
+    .form-group{margin-bottom:1.2rem}
+    .btn-submit{width:100%;background:var(--accent);color:var(--bg);border:none;padding:1rem;border-radius:8px;font-weight:700;font-size:.95rem;letter-spacing:.5px;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:.5rem;margin-top:.5rem;font-family:'Outfit',sans-serif}
+    .btn-submit:hover{background:white;transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,212,255,.25)}
+    .form-success{display:none;text-align:center;padding:2rem;font-family:'DM Mono',monospace;font-size:.85rem;color:var(--accent3)}
+    footer{border-top:1px solid var(--border);padding:2.5rem 0;position:relative;z-index:1}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-brand{font-family:'DM Mono',monospace;font-size:.85rem;color:var(--accent)}
+    .footer-copy{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted)}
+    .reveal{opacity:0;transform:translateY(35px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.in{opacity:1;transform:none}
+    @keyframes fade-up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+    @keyframes fade-in{from{opacity:0}to{opacity:1}}
+    .social-big-card{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem .8rem;border-radius:16px;background:var(--surface);border:1px solid var(--border2);text-decoration:none;color:var(--text);transition:all .3s ease;text-align:center;position:relative;overflow:hidden;cursor:pointer}
+    .social-big-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--sc),var(--sc2));opacity:0;transition:opacity .3s ease}
+    .social-big-card:hover{transform:translateY(-8px);color:white;border-color:var(--sc);box-shadow:0 20px 40px rgba(0,0,0,.4)}
+    .social-big-card:hover::before{opacity:.15}
+    .sc-icon-wrap{width:60px;height:60px;border-radius:16px;background:var(--surface2);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;color:var(--sc);margin-bottom:.8rem;position:relative;z-index:1;transition:all .3s}
+    .social-big-card:hover .sc-icon-wrap{background:var(--sc);color:white;border-color:var(--sc);transform:scale(1.1)}
+    .sc-label{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;position:relative;z-index:1;transition:color .3s}
+    .social-big-card:hover .sc-label{color:rgba(255,255,255,.7)}
+    .sc-handle{font-size:.78rem;font-weight:600;margin-top:.2rem;position:relative;z-index:1;word-break:break-all}
+    .footer-soc-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1.2rem;border-radius:100px;border:1px solid var(--border2);background:var(--surface);color:var(--muted2);text-decoration:none;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.5px;transition:all .25s}
+    .footer-soc-btn:hover{border-color:var(--fc);color:var(--fc);background:var(--surface2);transform:translateY(-2px)}
+    #back-top{position:fixed;bottom:2rem;right:2rem;z-index:500;width:44px;height:44px;background:var(--surface);border:1px solid var(--border2);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted2);text-decoration:none;font-size:1.1rem;transition:all .25s;opacity:0;pointer-events:none}
+    #back-top.show{opacity:1;pointer-events:all}
+    #back-top:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px)}
+    #progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:9999;transition:width .1s}
   </style>
 </head>
 <body>
-
-<!-- Reading progress -->
 <div id="progress"></div>
-
-<!-- Custom cursor -->
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
-
-<!-- Blobs -->
 <div class="blob blob-1"></div>
 <div class="blob blob-2"></div>
 <div class="blob blob-3"></div>
 
-<!-- ===== NAVBAR ===== -->
 <nav id="navbar">
   <div class="container d-flex align-items-center justify-content-between">
     <a href="#hero" class="nav-brand">&lt;KC<span>/</span>&gt;</a>
     <div class="nav-links" id="navLinks">
-      <a href="#about"     class="nav-link-item" data-section="about">About</a>
+      <a href="#about" class="nav-link-item" data-section="about">About</a>
       <a href="#experience" class="nav-link-item" data-section="experience">Experience</a>
       <a href="#education" class="nav-link-item" data-section="education">Education</a>
-      <a href="#projects"  class="nav-link-item" data-section="projects">Projects</a>
-      <a href="#contact"   class="nav-cta">Hire Me</a>
+      <a href="#projects" class="nav-link-item" data-section="projects">Projects</a>
+      <a href="#contact" class="nav-cta">Hire Me</a>
     </div>
-    <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </div>
 </nav>
 
-<!-- ===== HERO ===== -->
 <section id="hero">
   <div class="container">
     <div class="row g-5 align-items-center">
       <div class="col-lg-6">
-        <div class="hero-status">
-          <span class="status-dot"></span>
-          Available for opportunities · Ahmedabad, India
-        </div>
+        <div class="hero-status"><span class="status-dot"></span>Available for opportunities · Ahmedabad, India</div>
         <p class="hero-greeting">// Hello World 👋</p>
-        <h1 class="hero-name">
-          Krunal<br/>
-          <span class="line2">Champanera</span>
-        </h1>
-        <p class="hero-title">
-          <span>&lt;</span>Frontend Developer<span>/&gt;</span>
-          &nbsp;·&nbsp; React.js &nbsp;·&nbsp; Node.js
-        </p>
-        <p class="hero-bio">
-          Passionate about building fast, user-friendly web experiences. Currently working at 
-          <strong style="color:var(--accent)">Excelsior Technology, Ahmedabad</strong> — turning ideas into 
-          clean, production-ready code with React, JavaScript & Node.js.
-        </p>
+        <h1 class="hero-name">Krunal<br/><span class="line2">Champanera</span></h1>
+        <p class="hero-title"><span>&lt;</span>Frontend Developer<span>/&gt;</span> &nbsp;·&nbsp; React.js &nbsp;·&nbsp; Node.js</p>
+        <p class="hero-bio">Passionate about building fast, user-friendly web experiences. Currently working at <strong style="color:var(--accent)">Excelsior Technology, Ahmedabad</strong> — turning ideas into clean, production-ready code with React, JavaScript &amp; Node.js.</p>
         <div class="hero-actions">
-          <a href="#projects" class="btn-glow"><svg width="15" height="15" fill="currentColor" viewBox="0 0 16 16" style="display:inline;vertical-align:middle"><path d="M9.752 6.193c.599.6 1.73.437 2.528-.362.799-.799.96-1.932.363-2.531-.6-.6-1.73-.438-2.528.361-.798.8-.96 1.933-.363 2.532Z"/><path d="M15.811 3.312c-.363 1.534-1.334 3.626-3.64 6.218l-.24 2.408a2.56 2.56 0 0 1-.732 1.526L9.45 15.29a.512.512 0 0 1-.868-.302l-.153-1.527a1.392 1.392 0 0 1-.652-.551l-.752-.752a1.392 1.392 0 0 1-.312-.235l-1.526-.153a.512.512 0 0 1-.303-.869l1.836-1.74a2.56 2.56 0 0 1 1.525-.732l2.409-.241c2.59-2.308 4.68-3.278 6.21-3.641.534-.13.883.088 1.006.61Z"/><path d="M5.502 9.803a.5.5 0 0 0-.707 0L.646 13.452a.5.5 0 0 0 0 .707l1.19 1.191a.5.5 0 0 0 .707 0l4.148-4.148a.5.5 0 0 0 0-.707l-1.189-1.192Z"/></svg> View My Work</a>
-          <a href="#contact" class="btn-ghost"><svg width="15" height="15" fill="currentColor" viewBox="0 0 16 16" style="display:inline;vertical-align:middle"><path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/></svg> Get In Touch</a>
+          <a href="#projects" class="btn-glow">View My Work</a>
+          <a href="#contact" class="btn-ghost">Get In Touch</a>
         </div>
         <div class="hero-socials">
-          <a href="https://www.instagram.com/krunal___221" target="_blank" class="soc-btn" title="Instagram @krunal___221">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="display:inline;vertical-align:middle"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/in/krunal-champanera" target="_blank" class="soc-btn" title="LinkedIn: Krunal Champanera">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="display:inline;vertical-align:middle"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <a href="https://github.com/KrunalChampanera" target="_blank" class="soc-btn" title="GitHub: KrunalChampanera">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="display:inline;vertical-align:middle"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-          </a>
-          <a href="mailto:krunalchampanera@gmail.com" class="soc-btn" title="krunalchampanera@gmail.com">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="display:inline;vertical-align:middle"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>
-          </a>
-
+          <a href="https://www.instagram.com/krunal___221" target="_blank" class="soc-btn" title="Instagram @krunal___221"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="https://www.linkedin.com/in/krunal-champanera" target="_blank" class="soc-btn" title="LinkedIn: Krunal Champanera"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://github.com/KrunalChampanera" target="_blank" class="soc-btn" title="GitHub: KrunalChampanera"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+          <a href="mailto:krunalchampanera@gmail.com" class="soc-btn" title="krunalchampanera@gmail.com"><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg></a>
         </div>
         <div class="hero-counters">
-          <div class="counter-item">
-            <div class="counter-num">1<sup>yr</sup></div>
-            <div class="counter-lbl">Experience</div>
-          </div>
-          <div class="counter-item">
-            <div class="counter-num">6<sup>+</sup></div>
-            <div class="counter-lbl">Projects</div>
-          </div>
-          <div class="counter-item">
-            <div class="counter-num">10<sup>+</sup></div>
-            <div class="counter-lbl">Technologies</div>
-          </div>
+          <div class="counter-item"><div class="counter-num">1<sup>yr</sup></div><div class="counter-lbl">Experience</div></div>
+          <div class="counter-item"><div class="counter-num">6<sup>+</sup></div><div class="counter-lbl">Projects</div></div>
+          <div class="counter-item"><div class="counter-num">10<sup>+</sup></div><div class="counter-lbl">Technologies</div></div>
         </div>
       </div>
-
-      <!-- Hero code card -->
       <div class="col-lg-6">
         <div class="hero-code-card">
           <div class="code-titlebar">
-            <div class="dot dot-r"></div>
-            <div class="dot dot-y"></div>
-            <div class="dot dot-g"></div>
+            <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
             <span class="code-filename">krunal.js</span>
           </div>
           <div class="code-body">
@@ -720,7 +280,6 @@
   </div>
 </section>
 
-<!-- ===== ABOUT ===== -->
 <section id="about">
   <div class="container">
     <div class="row g-5">
@@ -729,88 +288,37 @@
         <h2 class="sec-title">Who I Am</h2>
         <div class="sec-line"></div>
         <div class="mt-4">
-          <p class="about-para">
-            I'm <strong>Krunal Champanera</strong>, a <strong>Frontend Developer</strong> from Bantwa, Gujarat, now based in Ahmedabad. I'm currently growing my skills at <strong>Excelsior Technology</strong>.
-          </p>
-          <p class="about-para mt-3">
-            I have a strong interest in web development and enjoy creating <strong>user-friendly, 
-            performant websites</strong>. I'm a quick learner, hardworking, and eager to grow in the IT field 
-            by applying my knowledge of <strong>React.js, JavaScript, Node.js</strong> and modern web technologies.
-          </p>
-          <p class="about-para mt-3">
-            I believe in clean code, continuous learning, and building products that make a real difference.
-          </p>
+          <p class="about-para">I'm <strong>Krunal Champanera</strong>, a <strong>Frontend Developer</strong> from Bantwa, Gujarat, now based in Ahmedabad. I'm currently growing my skills at <strong>Excelsior Technology</strong>.</p>
+          <p class="about-para mt-3">I have a strong interest in web development and enjoy creating <strong>user-friendly, performant websites</strong>. I'm a quick learner, hardworking, and eager to grow in the IT field by applying my knowledge of <strong>React.js, JavaScript, Node.js</strong> and modern web technologies.</p>
+          <p class="about-para mt-3">I believe in clean code, continuous learning, and building products that make a real difference.</p>
         </div>
         <div class="info-grid mt-4">
-          <div class="info-item">
-            <span class="info-label">Name</span>
-            <span class="info-value">Krunal Champanera</span>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Location</span>
-            <span class="info-value">Ahmedabad, India</span>
-          </div>
-
-          <div class="info-item">
-            <span class="info-label">Email</span>
-            <span class="info-value"><a href="mailto:krunalchampanera@gmail.com">krunalchampanera@gmail.com</a></span>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Degree</span>
-            <span class="info-value">BCA — Computer Science</span>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Status</span>
-            <span class="info-value" style="color:var(--accent3)">✓ Available to Hire</span>
-          </div>
+          <div class="info-item"><span class="info-label">Name</span><span class="info-value">Krunal Champanera</span></div>
+          <div class="info-item"><span class="info-label">Location</span><span class="info-value">Ahmedabad, India</span></div>
+          <div class="info-item"><span class="info-label">Email</span><span class="info-value"><a href="mailto:krunalchampanera@gmail.com">krunalchampanera@gmail.com</a></span></div>
+          <div class="info-item"><span class="info-label">Degree</span><span class="info-value">BCA — Computer Science</span></div>
+          <div class="info-item"><span class="info-label">Status</span><span class="info-value" style="color:var(--accent3)">✓ Available to Hire</span></div>
         </div>
       </div>
-
-      <div class="col-lg-7 reveal" style="transition-delay:0.2s">
+      <div class="col-lg-7 reveal" style="transition-delay:.2s">
         <p class="sec-tag">// Technical Skills</p>
         <h2 class="sec-title">My Stack</h2>
         <div class="sec-line"></div>
         <div class="mt-4">
           <p class="skill-group-title">Frontend</p>
-          <div class="mb-3">
-            <span class="chip">React.js</span>
-            <span class="chip">JavaScript (ES6+)</span>
-            <span class="chip">HTML5</span>
-            <span class="chip">CSS3</span>
-            <span class="chip">Bootstrap</span>
-            <span class="chip">React Hooks</span>
-            <span class="chip">React Router</span>
-            <span class="chip">State Management</span>
-          </div>
+          <div class="mb-3"><span class="chip">React.js</span><span class="chip">JavaScript (ES6+)</span><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">Bootstrap</span><span class="chip">React Hooks</span><span class="chip">React Router</span><span class="chip">State Management</span></div>
           <p class="skill-group-title mt-3">Backend</p>
-          <div class="mb-3">
-            <span class="chip">Node.js</span>
-            <span class="chip">Express.js</span>
-            <span class="chip">REST APIs</span>
-            <span class="chip">API Integration</span>
-            <span class="chip">Client-Server Architecture</span>
-          </div>
+          <div class="mb-3"><span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">REST APIs</span><span class="chip">API Integration</span><span class="chip">Client-Server Architecture</span></div>
           <p class="skill-group-title mt-3">Database</p>
-          <div class="mb-3">
-            <span class="chip">MongoDB</span>
-            <span class="chip">MySQL</span>
-            <span class="chip">Schema Design</span>
-            <span class="chip">CRUD Operations</span>
-          </div>
+          <div class="mb-3"><span class="chip">MongoDB</span><span class="chip">MySQL</span><span class="chip">Schema Design</span><span class="chip">CRUD Operations</span></div>
           <p class="skill-group-title mt-3">Others</p>
-          <div>
-            <span class="chip">Git & GitHub</span>
-            <span class="chip">Login & Auth Systems</span>
-            <span class="chip">Responsive Design</span>
-            <span class="chip">VS Code</span>
-          </div>
+          <div><span class="chip">Git &amp; GitHub</span><span class="chip">Login &amp; Auth Systems</span><span class="chip">Responsive Design</span><span class="chip">VS Code</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== EXPERIENCE ===== -->
 <section id="experience">
   <div class="container">
     <div class="text-center mb-5 reveal">
@@ -821,33 +329,25 @@
     <div class="row justify-content-center">
       <div class="col-lg-8 reveal">
         <div class="exp-card">
-          <div class="exp-period"><svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16" style="display:inline;vertical-align:middle;margin-right:6px"><path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/><path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>Aug 2025 — Present</div>
+          <div class="exp-period">Aug 2025 — Present</div>
           <div class="exp-role">Frontend Developer</div>
-          <div class="exp-company"><svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16" style="display:inline;vertical-align:middle;margin-right:4px"><path d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1ZM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Z"/><path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1Zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3V1Z"/></svg>Excelsior Technology &nbsp;·&nbsp; Ahmedabad, Gujarat</div>
+          <div class="exp-company">Excelsior Technology &nbsp;·&nbsp; Ahmedabad, Gujarat</div>
           <ul class="exp-bullets">
             <li>Learned and applied frontend development using React.js — Hooks, Routing, Components, and State Management</li>
             <li>Built backend applications using Node.js and Express.js for full-stack feature development</li>
-            <li>Practiced database schema design and management using MongoDB & MySQL</li>
+            <li>Practiced database schema design and management using MongoDB &amp; MySQL</li>
             <li>Developed CRUD-based applications with complete frontend and backend integration</li>
-            <li>Implemented login & registration systems with user authentication flows</li>
+            <li>Implemented login &amp; registration systems with user authentication flows</li>
             <li>Gained solid understanding of REST API integration and client-server architecture</li>
             <li>Completed mini projects during training phase demonstrating end-to-end development skills</li>
           </ul>
-          <div class="project-stack mt-3">
-            <span class="stack-tag">React.js</span>
-            <span class="stack-tag">Node.js</span>
-            <span class="stack-tag">Express.js</span>
-            <span class="stack-tag">MongoDB</span>
-            <span class="stack-tag">MySQL</span>
-            <span class="stack-tag">JavaScript</span>
-          </div>
+          <div class="project-stack mt-3"><span class="stack-tag">React.js</span><span class="stack-tag">Node.js</span><span class="stack-tag">Express.js</span><span class="stack-tag">MongoDB</span><span class="stack-tag">MySQL</span><span class="stack-tag">JavaScript</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== EDUCATION ===== -->
 <section id="education">
   <div class="container">
     <div class="row g-5 align-items-start">
@@ -855,226 +355,95 @@
         <p class="sec-tag">// Learning Path</p>
         <h2 class="sec-title">Education</h2>
         <div class="sec-line"></div>
-        <p class="mt-4" style="color:var(--muted2);font-size:0.9rem;line-height:1.7">
-          My academic journey from Bantwa, Gujarat to becoming a full-stack developer — driven by curiosity and passion for technology.
-        </p>
+        <p class="mt-4" style="color:var(--muted2);font-size:.9rem;line-height:1.7">My academic journey from Bantwa, Gujarat to becoming a full-stack developer — driven by curiosity and passion for technology.</p>
       </div>
-      <div class="col-lg-8 reveal" style="transition-delay:0.2s">
-        <div class="edu-item">
-          <div class="edu-icon">🎓</div>
-          <div>
-            <div class="edu-year">2022 — 2025</div>
-            <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
-            <div class="edu-school">SSSDIIT, Junagadh, Gujarat</div>
-            <div class="edu-percent">Completed · Focus: Web Development, Programming</div>
-          </div>
-        </div>
-        <div class="edu-item">
-          <div class="edu-icon">📗</div>
-          <div>
-            <div class="edu-year">March 2022</div>
-            <div class="edu-degree">Higher Secondary Certificate (HSC)</div>
-            <div class="edu-school">Maruti High School, Bantwa, Gujarat</div>
-            <div class="edu-percent">Percentage: 59%</div>
-          </div>
-        </div>
-        <div class="edu-item">
-          <div class="edu-icon">📘</div>
-          <div>
-            <div class="edu-year">March 2020</div>
-            <div class="edu-degree">Secondary School Certificate (SSC)</div>
-            <div class="edu-school">Maruti Vidhyalaya Madhyamik School, Bantwa, Gujarat</div>
-            <div class="edu-percent">Percentage: 56.34%</div>
-          </div>
-        </div>
+      <div class="col-lg-8 reveal" style="transition-delay:.2s">
+        <div class="edu-item"><div class="edu-icon">🎓</div><div><div class="edu-year">2022 — 2025</div><div class="edu-degree">Bachelor of Computer Applications (BCA)</div><div class="edu-school">SSSDIIT, Junagadh, Gujarat</div><div class="edu-percent">Completed · Focus: Web Development, Programming</div></div></div>
+        <div class="edu-item"><div class="edu-icon">📗</div><div><div class="edu-year">March 2022</div><div class="edu-degree">Higher Secondary Certificate (HSC)</div><div class="edu-school">Maruti High School, Bantwa, Gujarat</div><div class="edu-percent">Percentage: 59%</div></div></div>
+        <div class="edu-item"><div class="edu-icon">📘</div><div><div class="edu-year">March 2020</div><div class="edu-degree">Secondary School Certificate (SSC)</div><div class="edu-school">Maruti Vidhyalaya Madhyamik School, Bantwa, Gujarat</div><div class="edu-percent">Percentage: 56.34%</div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== PROJECTS ===== -->
 <section id="projects">
   <div class="container">
     <div class="text-center mb-4 reveal">
       <p class="sec-tag">// Portfolio</p>
       <h2 class="sec-title">My Projects</h2>
       <div class="sec-line mx-auto"></div>
-      <p class="mt-3" style="color:var(--muted2);font-size:0.85rem;font-family:'DM Mono',monospace">
-        Projects built with React.js, Node.js, MongoDB & more
-      </p>
+      <p class="mt-3" style="color:var(--muted2);font-size:.85rem;font-family:'DM Mono',monospace">Projects built with React.js, Node.js, MongoDB &amp; more</p>
     </div>
-
-    <!-- Filter Buttons -->
     <div class="filter-bar justify-content-center reveal">
       <button class="filter-btn active" data-filter="all">All Projects</button>
       <button class="filter-btn" data-filter="web">Web App</button>
       <button class="filter-btn" data-filter="ui">UI/UX</button>
       <button class="filter-btn" data-filter="mobile">Mobile</button>
     </div>
-
     <div class="row g-4" id="projectsGrid">
-      <!-- Project 1: Car Service Project (REAL) -->
       <div class="col-md-6 col-lg-4 project-item reveal" data-category="web">
-        <div class="project-card" style="border-color:rgba(0,212,255,0.3)">
-          <div class="project-thumb">
-            <div class="p-thumb-bg" style="background:linear-gradient(135deg,#040508,#0d1a2e)"></div>
-            <span class="p-emoji">🚗</span>
-            <span class="project-badge" style="background:rgba(0,212,255,0.2);border-color:rgba(0,212,255,0.4);color:var(--accent)">Real Project</span>
-          </div>
+        <div class="project-card" style="border-color:rgba(0,212,255,.3)">
+          <div class="project-thumb"><div class="p-thumb-bg" style="background:linear-gradient(135deg,#040508,#0d1a2e)"></div><span class="p-emoji">🚗</span><span class="project-badge" style="background:rgba(0,212,255,.2);border-color:rgba(0,212,255,.4);color:var(--accent)">Real Project</span></div>
           <div class="project-body">
-            <div class="project-stack">
-              <span class="stack-tag">React.js</span>
-              <span class="stack-tag">Node.js</span>
-              <span class="stack-tag">Express.js</span>
-              <span class="stack-tag">MongoDB</span>
-              <span class="stack-tag">JWT Auth</span>
-              <span class="stack-tag">Multer</span>
-            </div>
+            <div class="project-stack"><span class="stack-tag">React.js</span><span class="stack-tag">Node.js</span><span class="stack-tag">Express.js</span><span class="stack-tag">MongoDB</span><span class="stack-tag">JWT Auth</span><span class="stack-tag">Multer</span></div>
             <h3 class="project-name">Car Service Management System</h3>
-            <p class="project-desc">Full-stack car service platform with Admin panel, Service booking, Team management, Blog, Pricing, and Contact modules. REST API with JWT authentication, file uploads & MongoDB.</p>
-            <div style="margin-top:0.8rem;padding:0.6rem 0.8rem;background:var(--surface2);border-radius:6px;font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--muted2)">
-              <span style="color:var(--accent3)">API Routes:</span> /auth · /bookings · /services · /team · /blogs · /pricing · /contact
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/KrunalChampanera" target="_blank" class="p-link"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="display:inline;vertical-align:middle"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> View Code</a>
-            </div>
+            <p class="project-desc">Full-stack car service platform with Admin panel, Service booking, Team management, Blog, Pricing, and Contact modules. REST API with JWT authentication, file uploads &amp; MongoDB.</p>
+            <div class="project-links"><a href="https://github.com/KrunalChampanera" target="_blank" class="p-link">View Code</a></div>
           </div>
         </div>
       </div>
-
-      <!-- Project 2 -->
-      <div class="col-md-6 col-lg-4 project-item reveal" data-category="web" style="transition-delay:0.1s">
+      <div class="col-md-6 col-lg-4 project-item reveal" data-category="web" style="transition-delay:.1s">
         <div class="project-card">
-          <div class="project-thumb">
-            <div class="p-thumb-bg" style="background:linear-gradient(135deg,#040508,#1a0d2e)"></div>
-            <span class="p-emoji">🔐</span>
-            <span class="project-badge">Web App</span>
-          </div>
+          <div class="project-thumb"><div class="p-thumb-bg" style="background:linear-gradient(135deg,#040508,#1a0d2e)"></div><span class="p-emoji">🔐</span><span class="project-badge">Web App</span></div>
           <div class="project-body">
-            <div class="project-stack">
-              <span class="stack-tag">React.js</span>
-              <span class="stack-tag">Node.js</span>
-              <span class="stack-tag">MySQL</span>
-              <span class="stack-tag">JWT</span>
-            </div>
-            <h3 class="project-name">Login & Auth System</h3>
+            <div class="project-stack"><span class="stack-tag">React.js</span><span class="stack-tag">Node.js</span><span class="stack-tag">MySQL</span><span class="stack-tag">JWT</span></div>
+            <h3 class="project-name">Login &amp; Auth System</h3>
             <p class="project-desc">Secure user authentication system with registration, login, JWT token management, and protected routes. Includes form validation and session handling.</p>
-            <div class="project-links">
-              <a href="#" class="p-link"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16" style="display:inline;vertical-align:middle"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/></svg> Live Demo</a>
-              <a href="https://github.com/KrunalChampanera" target="_blank" class="p-link"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="display:inline;vertical-align:middle"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> Code</a>
-            </div>
+            <div class="project-links"><a href="https://github.com/KrunalChampanera" target="_blank" class="p-link">Code</a></div>
           </div>
         </div>
       </div>
-
-      <!-- Project 3 -->
-      <div class="col-md-6 col-lg-4 project-item reveal" data-category="web" style="transition-delay:0.2s">
+      <div class="col-md-6 col-lg-4 project-item reveal" data-category="web" style="transition-delay:.2s">
         <div class="project-card">
-          <div class="project-thumb">
-            <div class="p-thumb-bg" style="background:linear-gradient(135deg,#040508,#0d2e1a)"></div>
-            <span class="p-emoji">📋</span>
-            <span class="project-badge">Web App</span>
-          </div>
+          <div class="project-thumb"><div class="p-thumb-bg" style="background:linear-gradient(135deg,#040508,#0d2e1a)"></div><span class="p-emoji">📋</span><span class="project-badge">Web App</span></div>
           <div class="project-body">
-            <div class="project-stack">
-              <span class="stack-tag">React.js</span>
-              <span class="stack-tag">Express.js</span>
-              <span class="stack-tag">MongoDB</span>
-            </div>
+            <div class="project-stack"><span class="stack-tag">React.js</span><span class="stack-tag">Express.js</span><span class="stack-tag">MongoDB</span></div>
             <h3 class="project-name">CRUD Task Manager</h3>
             <p class="project-desc">Full-featured task management app with Create, Read, Update, Delete operations. RESTful API backend with React frontend and real-time UI updates.</p>
-            <div class="project-links">
-              <a href="#" class="p-link"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16" style="display:inline;vertical-align:middle"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/></svg> Live Demo</a>
-              <a href="https://github.com/KrunalChampanera" target="_blank" class="p-link"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="display:inline;vertical-align:middle"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> Code</a>
-            </div>
+            <div class="project-links"><a href="https://github.com/KrunalChampanera" target="_blank" class="p-link">Code</a></div>
           </div>
         </div>
       </div>
-
-      <!-- Project 4 -->
-      <div class="col-md-6 col-lg-4 project-item reveal" data-category="ui" style="transition-delay:0.1s">
+      <div class="col-md-6 col-lg-4 project-item reveal" data-category="ui" style="transition-delay:.1s">
         <div class="project-card">
-          <div class="project-thumb">
-            <div class="p-thumb-bg" style="background:linear-gradient(135deg,#040508,#2e1a0d)"></div>
-            <span class="p-emoji">🎨</span>
-            <span class="project-badge">UI/UX</span>
-          </div>
+          <div class="project-thumb"><div class="p-thumb-bg" style="background:linear-gradient(135deg,#040508,#2e1a0d)"></div><span class="p-emoji">🎨</span><span class="project-badge">UI/UX</span></div>
           <div class="project-body">
-            <div class="project-stack">
-              <span class="stack-tag">React.js</span>
-              <span class="stack-tag">Bootstrap</span>
-              <span class="stack-tag">CSS3</span>
-            </div>
+            <div class="project-stack"><span class="stack-tag">React.js</span><span class="stack-tag">Bootstrap</span><span class="stack-tag">CSS3</span></div>
             <h3 class="project-name">Responsive Portfolio UI</h3>
             <p class="project-desc">Clean, responsive portfolio website design with modern animations, mobile-first approach, smooth scrolling and interactive UI components using React.</p>
-            <div class="project-links">
-              <a href="#" class="p-link"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16" style="display:inline;vertical-align:middle"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/></svg> Live Demo</a>
-              <a href="https://github.com/KrunalChampanera" target="_blank" class="p-link"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="display:inline;vertical-align:middle"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> Code</a>
-            </div>
+            <div class="project-links"><a href="https://github.com/KrunalChampanera" target="_blank" class="p-link">Code</a></div>
           </div>
         </div>
       </div>
-
-      <!-- Project 5 — REAL Car Project -->
-      <div class="col-md-6 col-lg-4 project-item reveal" data-category="web" style="transition-delay:0.2s">
-        <div class="project-card" style="border-color:rgba(0,212,255,0.2)">
-          <div class="project-thumb">
-            <div class="p-thumb-bg" style="background:linear-gradient(135deg,#040508,#0a1f2e)"></div>
-            <span class="p-emoji">🚗</span>
-            <span class="project-badge" style="background:rgba(0,212,255,0.15);border-color:rgba(0,212,255,0.3);color:var(--accent)">Real Project</span>
-          </div>
+      <div class="col-md-6 col-lg-4 project-item reveal" data-category="web" style="transition-delay:.2s">
+        <div class="project-card" style="border-color:rgba(0,212,255,.2)">
+          <div class="project-thumb"><div class="p-thumb-bg" style="background:linear-gradient(135deg,#040508,#0a1f2e)"></div><span class="p-emoji">🚗</span><span class="project-badge" style="background:rgba(0,212,255,.15);border-color:rgba(0,212,255,.3);color:var(--accent)">Real Project</span></div>
           <div class="project-body">
-            <div class="project-stack">
-              <span class="stack-tag">Node.js</span>
-              <span class="stack-tag">Express.js</span>
-              <span class="stack-tag">MongoDB</span>
-              <span class="stack-tag">JWT Auth</span>
-              <span class="stack-tag">Multer</span>
-              <span class="stack-tag">REST API</span>
-            </div>
+            <div class="project-stack"><span class="stack-tag">Node.js</span><span class="stack-tag">Express.js</span><span class="stack-tag">MongoDB</span><span class="stack-tag">JWT Auth</span><span class="stack-tag">Multer</span><span class="stack-tag">REST API</span></div>
             <h3 class="project-name">Car Service Platform</h3>
-            <p class="project-desc">Full-stack car service management platform with JWT authentication, bookings, service listings, team management, blog, pricing, and contact modules. Built with Node.js + Express + MongoDB.</p>
-            <div style="margin-top:0.8rem;padding:0.6rem 0.8rem;background:var(--surface2);border-radius:6px;border:1px solid var(--border2)">
-              <div style="font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.4rem">API Modules</div>
-              <div style="display:flex;flex-wrap:wrap;gap:0.3rem">
-                <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--accent3);background:rgba(0,255,136,0.05);border:1px solid rgba(0,255,136,0.1);padding:0.15rem 0.45rem;border-radius:3px">/auth</span>
-                <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--accent3);background:rgba(0,255,136,0.05);border:1px solid rgba(0,255,136,0.1);padding:0.15rem 0.45rem;border-radius:3px">/bookings</span>
-                <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--accent3);background:rgba(0,255,136,0.05);border:1px solid rgba(0,255,136,0.1);padding:0.15rem 0.45rem;border-radius:3px">/services</span>
-                <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--accent3);background:rgba(0,255,136,0.05);border:1px solid rgba(0,255,136,0.1);padding:0.15rem 0.45rem;border-radius:3px">/team</span>
-                <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--accent3);background:rgba(0,255,136,0.05);border:1px solid rgba(0,255,136,0.1);padding:0.15rem 0.45rem;border-radius:3px">/blogs</span>
-                <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--accent3);background:rgba(0,255,136,0.05);border:1px solid rgba(0,255,136,0.1);padding:0.15rem 0.45rem;border-radius:3px">/pricing</span>
-                <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--accent3);background:rgba(0,255,136,0.05);border:1px solid rgba(0,255,136,0.1);padding:0.15rem 0.45rem;border-radius:3px">/contact</span>
-              </div>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/KrunalChampanera" target="_blank" class="p-link"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="display:inline;vertical-align:middle"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> Source Code</a>
-              <span class="p-link" style="color:var(--accent);cursor:default">
-                <svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16" style="display:inline;vertical-align:middle"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8z"/></svg>
-                Full Stack
-              </span>
-            </div>
+            <p class="project-desc">Full-stack car service management platform with JWT authentication, bookings, service listings, team management, blog, pricing, and contact modules.</p>
+            <div class="project-links"><a href="https://github.com/KrunalChampanera" target="_blank" class="p-link">Source Code</a></div>
           </div>
         </div>
       </div>
-
-      <!-- Project 6 — placeholder for future -->
-      <div class="col-md-6 col-lg-4 project-item reveal" data-category="mobile" style="transition-delay:0.3s">
+      <div class="col-md-6 col-lg-4 project-item reveal" data-category="mobile" style="transition-delay:.3s">
         <div class="project-card" style="border-style:dashed;border-color:var(--border2)">
-          <div class="project-thumb" style="opacity:0.5">
-            <div class="p-thumb-bg" style="background:var(--surface2)"></div>
-            <span class="p-emoji">🚀</span>
-            <span class="project-badge">Coming Soon</span>
-          </div>
+          <div class="project-thumb" style="opacity:.5"><div class="p-thumb-bg" style="background:var(--surface2)"></div><span class="p-emoji">🚀</span><span class="project-badge">Coming Soon</span></div>
           <div class="project-body">
-            <div class="project-stack">
-              <span class="stack-tag">React Native</span>
-              <span class="stack-tag">Node.js</span>
-            </div>
+            <div class="project-stack"><span class="stack-tag">React Native</span><span class="stack-tag">Node.js</span></div>
             <h3 class="project-name">Mobile App</h3>
             <p class="project-desc">A mobile application project in development. Building skills in React Native to extend web expertise to mobile platforms. Stay tuned!</p>
-            <div class="project-links">
-              <span class="p-link" style="color:var(--muted);cursor:default"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16" style="display:inline;vertical-align:middle"><path d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.64v-.989c0-.263-.153-.5-.443-.639A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.64v.989c0 .263.153.5.443.639A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2h-7zm3 6.35c0 .701-.278 1.351-.722 1.85h3.444c-.444-.499-.722-1.149-.722-1.85v-.5H7.5v.5zm-2.245 5.785a1 1 0 0 1-.826-1.233l.321-1.608c.173-.864.43-1.673.793-2.406a.5.5 0 0 1 .874.488c-.327.585-.564 1.307-.725 2.074l-.321 1.608a.5.5 0 0 1-.116.077z"/></svg> In Progress</span>
-            </div>
+            <div class="project-links"><span class="p-link" style="color:var(--muted);cursor:default">In Progress</span></div>
           </div>
         </div>
       </div>
@@ -1082,118 +451,64 @@
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="container">
     <div class="text-center mb-5 reveal">
       <p class="sec-tag">// Let's Connect</p>
       <h2 class="sec-title">Get In Touch</h2>
       <div class="sec-line mx-auto"></div>
-      <p class="mt-3" style="color:var(--muted2);font-size:0.85rem;font-family:'DM Mono',monospace;max-width:500px;margin:1rem auto 0">
-        Open to freelance projects, full-time roles &amp; collaborations.<br/>Let's build something great together! 🚀
-      </p>
+      <p class="mt-3" style="color:var(--muted2);font-size:.85rem;font-family:'DM Mono',monospace;max-width:500px;margin:1rem auto 0">Open to freelance projects, full-time roles &amp; collaborations.<br/>Let's build something great together! 🚀</p>
     </div>
-
-    <!-- Big Social Cards Row -->
     <div class="row g-3 mb-5 justify-content-center reveal">
-      <!-- Instagram -->
       <div class="col-6 col-md-4 col-lg-2">
         <a href="https://www.instagram.com/krunal___221" target="_blank" class="social-big-card" style="--sc:#e1306c;--sc2:#f77737">
-          <div class="sc-icon-wrap">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          </div>
-          <div class="sc-label">Instagram</div>
-          <div class="sc-handle">@krunal___221</div>
+          <div class="sc-icon-wrap"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+          <div class="sc-label">Instagram</div><div class="sc-handle">@krunal___221</div>
         </a>
       </div>
-      <!-- LinkedIn -->
       <div class="col-6 col-md-4 col-lg-2">
         <a href="https://www.linkedin.com/in/krunal-champanera" target="_blank" class="social-big-card" style="--sc:#0a66c2;--sc2:#0077b5">
-          <div class="sc-icon-wrap">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </div>
-          <div class="sc-label">LinkedIn</div>
-          <div class="sc-handle">Krunal Champanera</div>
+          <div class="sc-icon-wrap"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+          <div class="sc-label">LinkedIn</div><div class="sc-handle">Krunal Champanera</div>
         </a>
       </div>
-      <!-- GitHub -->
       <div class="col-6 col-md-4 col-lg-2">
         <a href="https://github.com/KrunalChampanera" target="_blank" class="social-big-card" style="--sc:#ffffff;--sc2:#aaa">
-          <div class="sc-icon-wrap">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-          </div>
-          <div class="sc-label">GitHub</div>
-          <div class="sc-handle">KrunalChampanera</div>
+          <div class="sc-icon-wrap"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></div>
+          <div class="sc-label">GitHub</div><div class="sc-handle">KrunalChampanera</div>
         </a>
       </div>
-      <!-- Email -->
       <div class="col-6 col-md-4 col-lg-2">
         <a href="mailto:krunalchampanera@gmail.com" class="social-big-card" style="--sc:#00d4ff;--sc2:#0099bb">
-          <div class="sc-icon-wrap">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
-          </div>
-          <div class="sc-label">Email</div>
-          <div class="sc-handle">krunalchampanera</div>
+          <div class="sc-icon-wrap"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg></div>
+          <div class="sc-label">Email</div><div class="sc-handle">krunalchampanera</div>
         </a>
       </div>
-
     </div>
-
-    <!-- Contact Form + Info -->
     <div class="contact-wrapper reveal">
-      <!-- Left: quick info -->
       <div>
         <p class="sec-tag mb-3">// Direct Message</p>
-        <p style="color:var(--muted2);font-size:0.88rem;line-height:1.8;font-family:'DM Mono',monospace;margin-bottom:1.5rem">
-          Prefer quick contact? Click any icon above or drop me a message directly. I reply within 24 hours! ⚡
-        </p>
-        <!-- Mini social list -->
-        <div style="display:flex;flex-direction:column;gap:0.7rem">
-          <a href="mailto:krunalchampanera@gmail.com" class="contact-info-item">
-            <div class="contact-icon-wrap" style="color:var(--accent);font-size:1.2rem"><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="display:inline;vertical-align:middle"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg></div>
-            <div><div class="ci-label">Email</div><div class="ci-value">krunalchampanera@gmail.com</div></div>
-          </a>
-          <a href="https://www.instagram.com/krunal___221" target="_blank" class="contact-info-item">
-            <div class="contact-icon-wrap" style="color:#e1306c;font-size:1.2rem"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="display:inline;vertical-align:middle"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
-            <div><div class="ci-label">Instagram</div><div class="ci-value">@krunal___221</div></div>
-          </a>
-          <a href="https://www.linkedin.com/in/krunal-champanera" target="_blank" class="contact-info-item">
-            <div class="contact-icon-wrap" style="color:#0a66c2;font-size:1.2rem"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="display:inline;vertical-align:middle"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
-            <div><div class="ci-label">LinkedIn</div><div class="ci-value">Krunal Champanera</div></div>
-          </a>
-
+        <p style="color:var(--muted2);font-size:.88rem;line-height:1.8;font-family:'DM Mono',monospace;margin-bottom:1.5rem">Prefer quick contact? Click any icon above or drop me a message directly. I reply within 24 hours! ⚡</p>
+        <div style="display:flex;flex-direction:column;gap:.7rem">
+          <a href="mailto:krunalchampanera@gmail.com" class="contact-info-item"><div class="contact-icon-wrap" style="color:var(--accent)"><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg></div><div><div class="ci-label">Email</div><div class="ci-value">krunalchampanera@gmail.com</div></div></a>
+          <a href="https://www.instagram.com/krunal___221" target="_blank" class="contact-info-item"><div class="contact-icon-wrap" style="color:#e1306c"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div><div><div class="ci-label">Instagram</div><div class="ci-value">@krunal___221</div></div></a>
+          <a href="https://www.linkedin.com/in/krunal-champanera" target="_blank" class="contact-info-item"><div class="contact-icon-wrap" style="color:#0a66c2"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div><div><div class="ci-label">LinkedIn</div><div class="ci-value">Krunal Champanera</div></div></a>
         </div>
       </div>
-
-      <!-- Right: form -->
-      <div class="reveal" style="transition-delay:0.2s">
+      <div class="reveal" style="transition-delay:.2s">
         <div class="contact-form">
           <p class="sec-tag mb-3">// Send a Message</p>
           <div id="formContainer">
-            <div class="form-group">
-              <label class="form-label-custom">Your Name</label>
-              <input type="text" class="form-control-custom" id="fname" placeholder="e.g. Rahul Sharma" />
-            </div>
-            <div class="form-group">
-              <label class="form-label-custom">Email Address</label>
-              <input type="email" class="form-control-custom" id="femail" placeholder="your@email.com" />
-            </div>
-            <div class="form-group">
-              <label class="form-label-custom">Subject</label>
-              <input type="text" class="form-control-custom" id="fsubject" placeholder="Job opportunity / Project / Collaboration" />
-            </div>
-            <div class="form-group">
-              <label class="form-label-custom">Message</label>
-              <textarea class="form-control-custom" id="fmessage" rows="5" placeholder="Tell me about your project or opportunity..."></textarea>
-            </div>
-            <button class="btn-submit" onclick="submitForm()">
-              <svg width="15" height="15" fill="currentColor" viewBox="0 0 16 16" style="display:inline;vertical-align:middle"><path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/></svg> Send Message
-            </button>
+            <div class="form-group"><label class="form-label-custom">Your Name</label><input type="text" class="form-control-custom" id="fname" placeholder="e.g. Rahul Sharma" /></div>
+            <div class="form-group"><label class="form-label-custom">Email Address</label><input type="email" class="form-control-custom" id="femail" placeholder="your@email.com" /></div>
+            <div class="form-group"><label class="form-label-custom">Subject</label><input type="text" class="form-control-custom" id="fsubject" placeholder="Job opportunity / Project / Collaboration" /></div>
+            <div class="form-group"><label class="form-label-custom">Message</label><textarea class="form-control-custom" id="fmessage" rows="5" placeholder="Tell me about your project or opportunity..."></textarea></div>
+            <button class="btn-submit" onclick="submitForm()">Send Message</button>
           </div>
           <div class="form-success" id="formSuccess">
             <div style="font-size:2.5rem;margin-bottom:1rem">✅</div>
-            <p style="color:var(--accent3);margin-bottom:0.5rem">Message sent successfully!</p>
-            <p style="color:var(--muted);font-size:0.75rem">I'll get back to you at krunalchampanera@gmail.com</p>
+            <p style="color:var(--accent3);margin-bottom:.5rem">Message sent successfully!</p>
+            <p style="color:var(--muted);font-size:.75rem">I'll get back to you at krunalchampanera@gmail.com</p>
           </div>
         </div>
       </div>
@@ -1201,116 +516,63 @@
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer>
   <div class="container">
     <div class="text-center mb-3">
       <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem">
-        <a href="https://www.instagram.com/krunal___221" target="_blank" class="footer-soc-btn" style="--fc:#e1306c">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="display:inline;vertical-align:middle"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          <span>Instagram</span>
-        </a>
-        <a href="https://www.linkedin.com/in/krunal-champanera" target="_blank" class="footer-soc-btn" style="--fc:#0a66c2">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="display:inline;vertical-align:middle"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          <span>LinkedIn</span>
-        </a>
-        <a href="https://github.com/KrunalChampanera" target="_blank" class="footer-soc-btn" style="--fc:#fff">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="display:inline;vertical-align:middle"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-          <span>GitHub</span>
-        </a>
-
-        <a href="mailto:krunalchampanera@gmail.com" class="footer-soc-btn" style="--fc:#00d4ff">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="display:inline;vertical-align:middle"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>
-          <span>Email</span>
-        </a>
+        <a href="https://www.instagram.com/krunal___221" target="_blank" class="footer-soc-btn" style="--fc:#e1306c"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> <span>Instagram</span></a>
+        <a href="https://www.linkedin.com/in/krunal-champanera" target="_blank" class="footer-soc-btn" style="--fc:#0a66c2"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> <span>LinkedIn</span></a>
+        <a href="https://github.com/KrunalChampanera" target="_blank" class="footer-soc-btn" style="--fc:#fff"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> <span>GitHub</span></a>
+        <a href="mailto:krunalchampanera@gmail.com" class="footer-soc-btn" style="--fc:#00d4ff"><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg> <span>Email</span></a>
       </div>
     </div>
     <div class="footer-inner">
       <span class="footer-brand">&lt;KC/&gt;</span>
-      <span class="footer-copy">© 2025 Krunal Champanera · Built with ❤️ using React + Bootstrap</span>
-      <a href="#hero" style="font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--muted);text-decoration:none">↑ Back to Top</a>
+      <span class="footer-copy">© 2025 Krunal Champanera · Built with ❤️ using HTML + Bootstrap</span>
+      <a href="#hero" style="font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted);text-decoration:none">↑ Back to Top</a>
     </div>
   </div>
 </footer>
 
-<!-- Back to top -->
-<a href="#hero" id="back-top" title="Back to top"><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="display:inline;vertical-align:middle"><path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/></svg></a>
+<a href="#hero" id="back-top" title="Back to top">↑</a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  // ===== CUSTOM CURSOR =====
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx+'px'; cursor.style.top = my+'px'; });
-  function animRing() { rx += (mx-rx)*0.12; ry += (my-ry)*0.12; ring.style.left = rx+'px'; ring.style.top = ry+'px'; requestAnimationFrame(animRing); }
+  const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+  function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);}
   animRing();
-
-  // ===== READING PROGRESS =====
-  const prog = document.getElementById('progress');
-  window.addEventListener('scroll', () => {
-    const p = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
-    prog.style.width = p + '%';
-  });
-
-  // ===== NAVBAR =====
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
-
-  // ===== HAMBURGER =====
-  const ham = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  ham.addEventListener('click', () => { ham.classList.toggle('open'); navLinks.classList.toggle('open'); });
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { ham.classList.remove('open'); navLinks.classList.remove('open'); }));
-
-  // ===== ACTIVE NAV LINK =====
-  const sections = document.querySelectorAll('section[id]');
-  const navItems = document.querySelectorAll('.nav-link-item');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        navItems.forEach(a => { a.classList.toggle('active', a.dataset.section === e.target.id); });
-      }
-    });
-  }, { threshold: 0.4 });
-  sections.forEach(s => observer.observe(s));
-
-  // ===== SCROLL REVEAL =====
-  const ro = new IntersectionObserver(entries => {
-    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('in'); } });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
-
-  // ===== BACK TO TOP =====
-  const btt = document.getElementById('back-top');
-  window.addEventListener('scroll', () => btt.classList.toggle('show', window.scrollY > 400));
-
-  // ===== PROJECT FILTER =====
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const projectItems = document.querySelectorAll('.project-item');
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
+  const prog=document.getElementById('progress');
+  window.addEventListener('scroll',()=>{const p=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;prog.style.width=p+'%';});
+  const navbar=document.getElementById('navbar');
+  window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60));
+  const ham=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');
+  ham.addEventListener('click',()=>{ham.classList.toggle('open');navLinks.classList.toggle('open');});
+  navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');navLinks.classList.remove('open');}));
+  const sections=document.querySelectorAll('section[id]'),navItems=document.querySelectorAll('.nav-link-item');
+  new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)navItems.forEach(a=>a.classList.toggle('active',a.dataset.section===e.target.id));}),{threshold:.4}).observe&&sections.forEach(s=>new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)navItems.forEach(a=>a.classList.toggle('active',a.dataset.section===e.target.id));}),{threshold:.4}).observe(s));
+  new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:.1}).observe&&document.querySelectorAll('.reveal').forEach(el=>new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:.1}).observe(el));
+  const btt=document.getElementById('back-top');
+  window.addEventListener('scroll',()=>btt.classList.toggle('show',window.scrollY>400));
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
       btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      projectItems.forEach(item => {
-        const match = filter === 'all' || item.dataset.category === filter;
-        item.style.display = match ? '' : 'none';
-        if (match) { item.style.opacity = '0'; item.style.transform = 'translateY(20px)'; setTimeout(() => { item.style.transition = 'all 0.4s ease'; item.style.opacity = '1'; item.style.transform = 'none'; }, 50); }
+      const filter=btn.dataset.filter;
+      document.querySelectorAll('.project-item').forEach(item=>{
+        const match=filter==='all'||item.dataset.category===filter;
+        item.style.display=match?'':'none';
+        if(match){item.style.opacity='0';item.style.transform='translateY(20px)';setTimeout(()=>{item.style.transition='all .4s ease';item.style.opacity='1';item.style.transform='none';},50);}
       });
     });
   });
-
-  // ===== CONTACT FORM =====
-  function submitForm() {
-    const name = document.getElementById('fname').value.trim();
-    const email = document.getElementById('femail').value.trim();
-    const msg = document.getElementById('fmessage').value.trim();
-    if (!name || !email || !msg) { alert('Please fill in all required fields.'); return; }
-    const mailtoLink = `mailto:krunalchampanera@gmail.com?subject=${encodeURIComponent(document.getElementById('fsubject').value || 'Portfolio Inquiry')}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + msg)}`;
-    window.location.href = mailtoLink;
-    document.getElementById('formContainer').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+  function submitForm(){
+    const name=document.getElementById('fname').value.trim(),email=document.getElementById('femail').value.trim(),msg=document.getElementById('fmessage').value.trim();
+    if(!name||!email||!msg){alert('Please fill in all required fields.');return;}
+    window.location.href=`mailto:krunalchampanera@gmail.com?subject=${encodeURIComponent(document.getElementById('fsubject').value||'Portfolio Inquiry')}&body=${encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\n'+msg)}`;
+    document.getElementById('formContainer').style.display='none';
+    document.getElementById('formSuccess').style.display='block';
   }
 </script>
 </body>
